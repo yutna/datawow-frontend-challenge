@@ -6,9 +6,14 @@ import cln from "./InputText.module.css";
 import type { InputTextProps } from "./types";
 
 const InputText = forwardRef<HTMLInputElement, InputTextProps>(
-  ({ className = "", ...props }, ref) => {
+  ({ className = "", type = "text", ...props }, ref) => {
     return (
-      <input {...props} className={clsx(cln.inputText, className)} ref={ref} />
+      <input
+        {...props}
+        className={clsx(cln.inputText, className)}
+        ref={ref}
+        type={type}
+      />
     );
   },
 );
