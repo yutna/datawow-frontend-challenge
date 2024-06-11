@@ -1,0 +1,24 @@
+.todoProgress {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-radius: 20px;
+  padding: 1.125rem;
+  background-color: var(--color-babe);
+}
+
+.heading {
+  color: var(--color-white);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.completed {
+  color: var(--color-arizona-sunrise);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: normal;
+}
