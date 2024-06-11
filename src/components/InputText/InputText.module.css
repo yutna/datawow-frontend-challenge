@@ -1,0 +1,19 @@
+.inputText {
+  border-color: transparent;
+  border-radius: 9999px;
+  padding: 0.75rem 1.125rem;
+  width: 100%;
+  color: var(--color-carbon-fiber);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.inputText:focus-visible {
+  outline-width: 0;
+}
+
+.inputText::placeholder {
+  color: var(--color-dust-to-dust);
+  opacity: 1;
+}
