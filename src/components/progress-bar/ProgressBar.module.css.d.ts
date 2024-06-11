@@ -1,7 +1,6 @@
 declare const styles: {
+  readonly "indicator": string;
   readonly "progressBar": string;
-  readonly "progressBarFallback": string;
-  readonly "progressBarFallbackValue": string;
 };
 export = styles;
 

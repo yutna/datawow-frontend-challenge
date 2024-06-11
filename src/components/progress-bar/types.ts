@@ -1,4 +1,5 @@
-import { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithRef } from "react";
+import type { Root as ProgressRoot } from "@radix-ui/react-progress";
 
 export interface ProgressBarProps
-  extends ComponentPropsWithoutRef<"progress"> {}
+  extends ComponentPropsWithRef<typeof ProgressRoot> {}

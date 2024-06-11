@@ -11,12 +11,10 @@ export default function TodoProgress({
   total = 0,
   ...props
 }: TodoProgressProps) {
-  const progressValue = (completed / total) * 100.0;
-
   return (
     <header {...props} className={clsx(cln.todoProgress, className)}>
       <h1 className={cln.heading}>{heading}</h1>
-      <ProgressBar value={progressValue} />
+      <ProgressBar max={total} value={completed} />
       <p className={cln.completed}>
         {completed} {completedText}
       </p>
