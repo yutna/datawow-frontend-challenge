@@ -1,3 +1,15 @@
+:root {
+  --color-arizona-sunrise: #ebb9b8;
+  --color-babe: #e07c7c;
+  --color-black: #000000;
+  --color-black-liquorice: #3b3b3b;
+  --color-carbon-fiber: #2e2e2e;
+  --color-dust-to-dust: #bcbcbc;
+  --color-purple-corallite: #585292;
+  --color-white: #ffffff;
+  --color-ultimate-grey: #a9a9a9;
+}
+
 *,
 *::before,
 *::after {
@@ -9,6 +21,7 @@ html {
 }
 
 body {
+  color: var(--color-carbon-fiber);
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
