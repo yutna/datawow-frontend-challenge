@@ -13,6 +13,7 @@ export default function InputCheckbox({
   checked = false,
   className = "",
   isShowLabel = false,
+  labelClassName = "",
   name = "",
   onCheckedChange = undefined,
   value = "",
@@ -32,7 +33,11 @@ export default function InputCheckbox({
           <CheckIcon />
         </Checkbox.Indicator>
       </Checkbox.Root>
-      <label className={cln.label} htmlFor={id} data-show-label={isShowLabel}>
+      <label
+        className={clsx(cln.label, labelClassName)}
+        htmlFor={id}
+        data-show-label={isShowLabel}
+      >
         {isShowLabel ? (
           label
         ) : (

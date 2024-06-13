@@ -1,0 +1,18 @@
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 9999px;
+  padding: 0.625rem 1.25rem;
+  width: 100%;
+  background-color: var(--color-white);
+}
+
+.checkbox {
+  flex-grow: 1;
+}
+
+.titleStrikethrough {
+  color: var(--color-ultimate-grey);
+  text-decoration-line: line-through;
+}

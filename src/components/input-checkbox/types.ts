@@ -6,6 +6,7 @@ export interface InputCheckboxProps extends ComponentPropsWithoutRef<"span"> {
   label: string;
 
   checked?: CheckboxProps["checked"];
+  labelClassName?: string;
   isShowLabel?: boolean;
   name?: string;
   onCheckedChange?: CheckboxProps["onCheckedChange"];
