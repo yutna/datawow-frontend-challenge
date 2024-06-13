@@ -1,0 +1,20 @@
+.btn {
+  all: reset;
+  border-style: solid;
+  border-color: var(--color-purple-corallite);
+  border-radius: 999px;
+  padding: 0.5rem 0.875rem;
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: normal;
+  background-color: var(--color-purple-corallite);
+  cursor: pointer;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.btn:active {
+  filter: brightness(85%);
+}
