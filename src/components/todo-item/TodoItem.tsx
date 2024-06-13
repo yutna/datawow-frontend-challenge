@@ -34,7 +34,10 @@ export default function TodoItem({
   // Event handler
   const handleCheckedChange = (isChecked: CheckedState) => {
     if (isBoolean(isChecked)) {
-      setLocalTodo({ ...localTodo, completed: isChecked });
+      const updatedTodo = { ...localTodo, completed: isChecked };
+
+      setLocalTodo(updatedTodo);
+      onUpdatedTodo && onUpdatedTodo(updatedTodo);
     }
   };
 
@@ -52,7 +55,7 @@ export default function TodoItem({
   const handleSave = (updatedTodo: Todo) => {
     setLocalTodo({ ...updatedTodo });
     setIsShowEditForm(false);
-    onUpdatedTodo && onUpdatedTodo(localTodo);
+    onUpdatedTodo && onUpdatedTodo(updatedTodo);
   };
 
   // Conditional rendering
