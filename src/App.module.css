@@ -1,0 +1,60 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100dvw;
+  min-height: 100dvh;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  border-radius: 20px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 45rem;
+  background-color: var(--color-white-smoke);
+}
+
+.app {
+  width: 100%;
+  max-width: 32.375rem;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.filterTitle {
+  color: var(--color-black);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.addTodo {
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  .wrapper {
+    padding: 1.875rem 1.5625rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding: 3.75rem 3.125rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    padding: 3.75rem 6.25rem;
+  }
+}
