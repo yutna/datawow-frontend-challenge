@@ -58,7 +58,7 @@ export default function TodoApp() {
     }
   };
 
-  const handleDeleteTodo = async (id: TodoItem["id"]) => {
+  const handleDeleteTodo = async (id: string) => {
     const isRemovedTodo = await TodoService.remove(id);
 
     if (isRemovedTodo) {
@@ -75,8 +75,24 @@ export default function TodoApp() {
     }
   };
 
-  const handleUpdatedTodo = (updatedTodo: TodoItem) => {
-    console.log(updatedTodo);
+  const handleUpdatedTodo = async (updatedTodo: TodoItem) => {
+    const id = updatedTodo.id;
+    const payload = {
+      title: updatedTodo.title,
+      completed: updatedTodo.completed,
+    };
+
+    const updatedTodoResult = await TodoService.update(id, payload);
+    const copyTodoItems = [...todo.items];
+
+    copyTodoItems.forEach((item) => {
+      if (item.id === updatedTodoResult.id) {
+        item.title = updatedTodoResult.title;
+        item.completed = updatedTodoResult.completed;
+      }
+    });
+
+    todo.setItems(copyTodoItems);
   };
 
   return (

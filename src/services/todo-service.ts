@@ -30,4 +30,16 @@ export class TodoService {
       console.error(error);
     }
   }
+
+  static async update(
+    id: string,
+    payload: Pick<TodoItem, "title" | "completed">,
+  ) {
+    try {
+      const response = await axios.put(`${BASE_API_URL}/todos/${id}`, payload);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
