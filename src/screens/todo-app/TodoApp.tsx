@@ -1,4 +1,5 @@
 import { useContext, useMemo } from "react";
+import has from "lodash-es/has";
 
 import { Select } from "@/components/select";
 import { TodoAddItem } from "@/components/todo-add-item";
@@ -6,6 +7,8 @@ import { TodoList } from "@/components/todo-list";
 import { TodoProgress } from "@/components/todo-progress";
 
 import { TodoContext } from "@/contexts/todo-context";
+
+import { TodoService } from "@/services/todo-service";
 
 import cln from "./TodoApp.module.css";
 
@@ -45,8 +48,13 @@ export default function TodoApp() {
   }, [todo.filter]);
 
   // Event handlers
-  const handleAddTodo = (value: string) => {
-    console.log(value);
+  const handleAddTodo = async (value: string) => {
+    const payload = { title: value, completed: false };
+    const newTodoItem = await TodoService.add(payload);
+
+    if (has(newTodoItem, "id")) {
+      todo.setItems([...todo.items, newTodoItem]);
+    }
   };
 
   const handleDeleteTodo = (id: TodoItem["id"]) => {
