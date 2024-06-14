@@ -9,4 +9,6 @@ export interface TodoItem {
 export interface Todo {
   items: TodoItem[];
   filter: Filter;
+  setItems: (items: TodoItem[]) => void;
+  setFilter: (filter: Filter) => void;
 }

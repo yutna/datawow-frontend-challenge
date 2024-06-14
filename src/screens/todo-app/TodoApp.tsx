@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo } from "react";
 
 import { Select } from "@/components/select";
 import { TodoAddItem } from "@/components/todo-add-item";
@@ -21,11 +21,28 @@ const options: SelectOption[] = [
 export default function TodoApp() {
   // Hooks
   const todo = useContext(TodoContext);
-  const [filter] = useState<SelectOption>(options[0]);
-  const [filteredTodos] = useState<TodoItem[]>(todo.items);
 
-  // Variables
-  const totalCompleted = todo.items.filter((todo) => todo.completed).length;
+  // Computed Variables
+  const totalCompleted = useMemo(() => {
+    return todo.items.filter((item) => item.completed).length;
+  }, [todo.items]);
+
+  const filteredTodos = useMemo(() => {
+    return todo.items.filter((item) => {
+      switch (todo.filter) {
+        case "all":
+          return item;
+        case "done":
+          return item.completed;
+        case "undone":
+          return !item.completed;
+      }
+    });
+  }, [todo.items, todo.filter]);
+
+  const selectedOption = useMemo(() => {
+    return options.find((option) => option.value === todo.filter)!;
+  }, [todo.filter]);
 
   // Event handlers
   const handleAddTodo = (value: string) => {
@@ -54,7 +71,7 @@ export default function TodoApp() {
             <Select
               label="Todo Filter"
               options={options}
-              selectedOption={filter}
+              selectedOption={selectedOption}
               onSelectOption={handleSelectFilter}
             />
           </div>
