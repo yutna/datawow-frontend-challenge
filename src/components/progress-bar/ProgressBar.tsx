@@ -1,6 +1,7 @@
 import * as Progress from "@radix-ui/react-progress";
 import clsx from "clsx";
 import { isNull } from "lodash-es";
+import { useEffect, useState } from "react";
 
 import cln from "./ProgressBar.module.css";
 
@@ -12,13 +13,25 @@ export default function ProgressBar({
   value = 0,
   ...props
 }: ProgressBarProps) {
+  // Hook
+  const [progressInPercent, setProgressInPercent] = useState(0);
+
+  // Variables
   const progressValue = isNull(value) ? 0 : value;
 
   if (max < 0 || max < progressValue) {
     throw new Error("Error! invalid max value");
   }
 
-  const progressInPercent = (progressValue / max) * 100.0;
+  // Effect hook
+  useEffect(() => {
+    const timer = setTimeout(
+      () => setProgressInPercent((progressValue / max) * 100.0),
+      500,
+    );
+
+    return () => clearTimeout(timer);
+  }, [max, progressValue]);
 
   return (
     <Progress.Root
