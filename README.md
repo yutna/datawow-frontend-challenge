@@ -12,6 +12,7 @@ Make sure you have the following installed on your machine:
 
 - [Node.js](https://nodejs.org/) (LTS version recommended)
 - [npm](https://www.npmjs.com/)
+- [yarn](https://yarnpkg.com/)
 
 ### Installation
 
@@ -28,6 +29,19 @@ Make sure you have the following installed on your machine:
 
    ```sh
    npm install
+   ```
+
+3. Clone the back-end repository
+
+   ```sh
+   git clone https://github.com/datawowio/todos-json-server.git
+   yarn install
+   ```
+
+4. Run the back-end server
+
+   ```sh
+   yarn start
    ```
 
 ## Available Scripts
@@ -54,6 +68,11 @@ Your app is ready to be deployed!
 
 Serves the production build locally.\
 You can use this command to preview the production build locally before deploying.
+
+### `npm run storybook`
+
+This command serves Storybook locally.\
+It allows you to develop and test your UI components in isolation.
 
 ## License
 
