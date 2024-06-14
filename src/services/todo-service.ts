@@ -21,4 +21,13 @@ export class TodoService {
       console.error(error);
     }
   }
+
+  static async remove(id: string) {
+    try {
+      const response = await axios.delete(`${BASE_API_URL}/todos/${id}`);
+      return response.status === 200;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }

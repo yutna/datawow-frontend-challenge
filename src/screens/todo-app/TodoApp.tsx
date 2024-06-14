@@ -1,5 +1,6 @@
-import { useContext, useMemo } from "react";
 import has from "lodash-es/has";
+import remove from "lodash-es/remove";
+import { useContext, useMemo } from "react";
 
 import { Select } from "@/components/select";
 import { TodoAddItem } from "@/components/todo-add-item";
@@ -57,8 +58,15 @@ export default function TodoApp() {
     }
   };
 
-  const handleDeleteTodo = (id: TodoItem["id"]) => {
-    console.log(id);
+  const handleDeleteTodo = async (id: TodoItem["id"]) => {
+    const isRemovedTodo = await TodoService.remove(id);
+
+    if (isRemovedTodo) {
+      const copyTodoItems = [...todo.items];
+
+      remove(copyTodoItems, (item) => item.id === id);
+      todo.setItems(copyTodoItems);
+    }
   };
 
   const handleSelectFilter = (value: string) => {
