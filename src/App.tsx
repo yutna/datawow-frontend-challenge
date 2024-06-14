@@ -13,7 +13,7 @@ export default function App() {
 
   // Effect hook
   useEffect(() => {
-    TodoService.getAll().then((todos) => {
+    TodoService.all().then((todos) => {
       setItems(todos);
     });
   }, []);

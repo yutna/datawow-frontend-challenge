@@ -4,7 +4,7 @@ import { BASE_API_URL } from "@/const";
 import type { TodoItem } from "@/types/todo";
 
 export class TodoService {
-  static async getAll() {
+  static async all() {
     try {
       const response = await axios.get(`${BASE_API_URL}/todos`);
       return response.data;
