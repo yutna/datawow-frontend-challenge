@@ -1,9 +1,9 @@
 import type { ComponentPropsWithoutRef } from "react";
-import type { Todo } from "@/types/todo";
+import type { TodoItem } from "@/types/todo";
 
 export interface TodoItemProps extends ComponentPropsWithoutRef<"div"> {
-  todo: Todo;
+  todo: TodoItem;
 
-  onDeleteTodo?: (id: Todo["id"]) => void;
-  onUpdatedTodo?: (todo: Todo) => void;
+  onDeleteTodo?: (id: TodoItem["id"]) => void;
+  onUpdatedTodo?: (todo: TodoItem) => void;
 }

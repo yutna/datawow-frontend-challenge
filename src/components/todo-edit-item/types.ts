@@ -1,10 +1,10 @@
 import type { ComponentPropsWithoutRef } from "react";
-import type { Todo } from "@/types/todo";
+import type { TodoItem } from "@/types/todo";
 
 export interface TodoEditItemProps extends ComponentPropsWithoutRef<"form"> {
-  todo: Todo;
+  todo: TodoItem;
 
   buttonText?: string;
   label?: string;
-  onSave?: (todo: Todo) => void;
+  onSave?: (todo: TodoItem) => void;
 }

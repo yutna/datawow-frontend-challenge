@@ -8,7 +8,7 @@ import { InputText } from "@/components/input-text";
 import cln from "./TodoEditItem.module.css";
 
 import type { ChangeEvent, FormEvent } from "react";
-import type { Todo } from "@/types/todo";
+import type { TodoItem } from "@/types/todo";
 import type { TodoEditItemProps } from "./types";
 
 export default function TodoEditItem({
@@ -32,7 +32,7 @@ export default function TodoEditItem({
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const copyTodo: Todo = { ...todo };
+    const copyTodo: TodoItem = { ...todo };
     copyTodo.title = value;
 
     onSave && onSave(copyTodo);

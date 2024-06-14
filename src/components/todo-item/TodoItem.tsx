@@ -10,7 +10,7 @@ import cln from "./TodoItem.module.css";
 
 import type { CheckedState } from "@radix-ui/react-checkbox";
 import type { MenuItem } from "@/components/dropdown";
-import type { Todo } from "@/types/todo";
+import type { TodoItem } from "@/types/todo";
 import type { TodoItemProps } from "./types";
 
 export default function TodoItem({
@@ -22,7 +22,7 @@ export default function TodoItem({
   ...props
 }: TodoItemProps) {
   // Hook
-  const [localTodo, setLocalTodo] = useState<Todo>({ ...todo });
+  const [localTodo, setLocalTodo] = useState<TodoItem>({ ...todo });
   const [isShowEditForm, setIsShowEditForm] = useState<boolean>(false);
 
   // Variable
@@ -52,7 +52,7 @@ export default function TodoItem({
     }
   };
 
-  const handleSave = (updatedTodo: Todo) => {
+  const handleSave = (updatedTodo: TodoItem) => {
     setLocalTodo({ ...updatedTodo });
     setIsShowEditForm(false);
     onUpdatedTodo && onUpdatedTodo(updatedTodo);

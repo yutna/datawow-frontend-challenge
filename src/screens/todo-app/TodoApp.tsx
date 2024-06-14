@@ -10,7 +10,7 @@ import todos from "@/fixtures/data.json";
 import cln from "./TodoApp.module.css";
 
 import type { SelectOption } from "@/components/select";
-import type { Todo } from "@/types/todo";
+import type { TodoItem } from "@/types/todo";
 
 const options: SelectOption[] = [
   { label: "All", value: "all" },
@@ -21,7 +21,7 @@ const options: SelectOption[] = [
 export default function TodoApp() {
   // Hooks
   const [filter] = useState<SelectOption>(options[0]);
-  const [filteredTodos] = useState<Todo[]>(todos);
+  const [filteredTodos] = useState<TodoItem[]>(todos);
 
   // Variables
   const totalCompleted = todos.filter((todo) => todo.completed).length;
@@ -31,7 +31,7 @@ export default function TodoApp() {
     console.log(value);
   };
 
-  const handleDeleteTodo = (id: Todo["id"]) => {
+  const handleDeleteTodo = (id: TodoItem["id"]) => {
     console.log(id);
   };
 
@@ -39,7 +39,7 @@ export default function TodoApp() {
     console.log(value);
   };
 
-  const handleUpdatedTodo = (updatedTodo: Todo) => {
+  const handleUpdatedTodo = (updatedTodo: TodoItem) => {
     console.log(updatedTodo);
   };
 
