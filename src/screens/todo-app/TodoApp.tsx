@@ -54,7 +54,9 @@ export default function TodoApp() {
   };
 
   const handleSelectFilter = (value: string) => {
-    console.log(value);
+    if (value === "all" || value === "done" || value === "undone") {
+      todo.setFilter(value);
+    }
   };
 
   const handleUpdatedTodo = (updatedTodo: TodoItem) => {
