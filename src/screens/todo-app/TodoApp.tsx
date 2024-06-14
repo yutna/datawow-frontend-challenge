@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import { Select } from "@/components/select";
 import { TodoAddItem } from "@/components/todo-add-item";
 import { TodoList } from "@/components/todo-list";
 import { TodoProgress } from "@/components/todo-progress";
 
-import todos from "@/fixtures/data.json";
+import { TodoContext } from "@/contexts/todo-context";
 
 import cln from "./TodoApp.module.css";
 
@@ -20,11 +20,12 @@ const options: SelectOption[] = [
 
 export default function TodoApp() {
   // Hooks
+  const todo = useContext(TodoContext);
   const [filter] = useState<SelectOption>(options[0]);
-  const [filteredTodos] = useState<TodoItem[]>(todos);
+  const [filteredTodos] = useState<TodoItem[]>(todo.items);
 
   // Variables
-  const totalCompleted = todos.filter((todo) => todo.completed).length;
+  const totalCompleted = todo.items.filter((todo) => todo.completed).length;
 
   // Event handlers
   const handleAddTodo = (value: string) => {
@@ -47,7 +48,7 @@ export default function TodoApp() {
     <main className={cln.root}>
       <div className={cln.wrapper}>
         <div className={cln.app}>
-          <TodoProgress completed={totalCompleted} total={todos.length} />
+          <TodoProgress completed={totalCompleted} total={todo.items.length} />
           <div className={cln.filter}>
             <h2 className={cln.filterTitle}>Tasks</h2>
             <Select
